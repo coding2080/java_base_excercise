@@ -78,10 +78,10 @@ public class _3_Loop {
         if (n<0 || n>=99) {
             cnt=-1;
         } else {
-            int newNum = 0;
+            int newNum=-1;
             while(n!=newNum) {
                 int a,b,c,d,nn;
-                if(newNum==0) {
+                if(newNum==-1) {
                     nn=n;
                 } else {
                     nn=newNum;
@@ -111,3 +111,11 @@ public class _3_Loop {
         return cnt;
     }
 }
+
+
+/*
+    [22/03/14]
+     - 예외처리는 먼저 진행 후 즉시 return 설정
+     - 굳이 System.out.println으로 찍어볼 필요 없이 디버깅 활용하기
+       F7 : 함수로 이동, F8 : 다음줄로 이동, F8 : 다음 디버깅 포인트로 이동
+*/
