@@ -28,6 +28,10 @@ public class _2_Conditions {
      * @return true or false
      */
     private static boolean isBetweenFiveAndTen(int x) {
+
+        if (x>5 && x<10) {
+            return true;
+        }
         return false;
     }
 
@@ -43,7 +47,36 @@ public class _2_Conditions {
      * @return 문자열 요일 or invalid index
      */
     public static String intToStrDate(int idx) {
-        return "";
+        String day;
+        switch (idx) {
+            case 0 :
+                day="월요일" ;
+                break;
+            case 1 :
+                day="화요일";
+                break;
+            case 2 :
+                day="수요일";
+                 break;
+            case 3 :
+                day="목요일";
+                break;
+            case 4 :
+                day="금요일";
+                break;
+            case 5 :
+                day="토요일";
+                break;
+            case 6 :
+                day="일요일";
+                break;
+            default :
+                day = "invalid index";
+                break;
+        }
+
+        return day;
+
     }
 
     /**
@@ -58,6 +91,36 @@ public class _2_Conditions {
      * @return 상금
      */
     public static int getDiceGameRewards(int dice1, int dice2, int dice3) {
-        return 0;
+        int money;
+        if (dice1 == dice2 && dice2 == dice3) {
+            money = 10000+(dice1*1000);
+            return money;
+        } else if (dice1==dice2 || dice1==dice3 || dice2 ==dice3) {
+            int result;
+            if (dice1==dice2) {
+                result=1;
+            } else if(dice1==dice3) {
+                result=2;
+            } else {
+                result=3;
+            }
+
+            if (result==1 || result==2) {
+                money=1000+(dice1*100);
+            } else {
+                money=1000+(dice2*100);
+            }
+            return money;
+        } else {
+            int max = dice1;
+            if(dice2>max) {
+                max=dice2;
+            }
+            if(dice3>max) {
+                max=dice3;
+            }
+            money = max*100;
+            return money;
+        }
     }
 }

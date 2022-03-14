@@ -7,36 +7,58 @@ public class _3_Loop {
 
         System.out.println(addRange(1, 10)); // 55
 
-        System.out.print(addRange2(5)); // 15
-        System.out.print(addRange2(200)); // 55
-        System.out.print(addRange2(-33)); // -1
+        System.out.println(addRange2(5)); // 15
+        System.out.println(addRange2(200)); // 55
+        System.out.println(addRange2(-33)); // -1
 
-        System.out.print(26); // 4
-        System.out.print(55); // 3
-        System.out.print(1); // 60
-        System.out.print(0); // 1
-        System.out.print(71); // 12
+        System.out.println("26 : " + getAddCycle(26)); // 4
+        System.out.println("55 : " + getAddCycle(55)); // 3
+        System.out.println("1 : " + getAddCycle(1)); // 60
+        System.out.println("0 : " + getAddCycle(0)); // 1
+        System.out.println("71 : " + getAddCycle(71)); // 12
     }
 
     /**
      * for 문 사용하여 입력 받은 시작 정수부터 끝 정수까지 모두 합한 값을 반환하는 함수
+     *
      * @param begin 시작 정수
-     * @param end 끝 정수
+     * @param end   끝 정수
      * @return 시작과 끝 서이 정수들의 합
      */
     public static int addRange(int begin, int end) {
-        return 0;
+        int sum = 0;
+        for (int i = begin; i <= end; i++) {
+            sum += i;
+        }
+        return sum;
     }
 
     /**
      * while 문 사용하여 1부터 입력받은 정수까지 합을 반환하는 함수
      * 만약 입력받은 정수가 10보다 크다면 1부터 10까지 합한 값을 반환한다.
      * 만약 입력받은 정수가 0또는 음의 정수일 경우 -1을 반환한다.
+     *
      * @param x
      * @return
      */
     public static int addRange2(int x) {
-        return 0;
+        int sum = 0;
+        if (x > 10) {
+            int i = 1;
+            while (i <= 10) {
+                sum += i;
+                i++;
+            }
+        } else if (x == 0 || x < 0) {
+            sum = -1;
+        } else {
+            int i=1;
+            while(i<=x) {
+                sum+=i;
+                i++;
+            }
+        }
+        return sum;
     }
 
     /**
@@ -50,7 +72,42 @@ public class _3_Loop {
      * @param n 주어진 정주 n
      * @return n이 다시 n으로 돌아오는 사이클의 길이
      */
-    public static int getAddCycle(int n) {
-        return 0;
+    public static int getAddCycle ( int n){
+        int cnt=0;
+
+        if (n<0 || n>=99) {
+            cnt=-1;
+        } else {
+            int newNum = 0;
+            while(n!=newNum) {
+                int a,b,c,d,nn;
+                if(newNum==0) {
+                    nn=n;
+                } else {
+                    nn=newNum;
+                }
+                a=nn/10;
+                //System.out.println("a:"+a);
+                b=nn%10;
+                //System.out.println("b:"+b);
+
+                c=a+b;
+
+                //System.out.println("c:"+c);
+                d=c%10;
+                //System.out.println("d:"+d);
+                newNum=(b*10)+d;
+                //System.out.println("newNum : " + newNum);
+                cnt+=1;
+                //System.out.println("cnt : " + cnt);
+                if(newNum == n) {
+                    //System.out.println("cnt : " + cnt);
+                    break;
+                }
+
+
+            }
+        }
+        return cnt;
     }
 }
