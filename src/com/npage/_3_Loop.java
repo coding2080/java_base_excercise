@@ -104,8 +104,6 @@ public class _3_Loop {
                     //System.out.println("cnt : " + cnt);
                     break;
                 }
-
-
             }
         }
         return cnt;
